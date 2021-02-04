@@ -28,7 +28,7 @@ url: "https://jvlsg.github.io/"
 github_username: jvlsg 
 
 # Build settings
-theme: jekyll-theme-minimal 
+theme: minima 
 plugins:
   - jekyll-feed
 
