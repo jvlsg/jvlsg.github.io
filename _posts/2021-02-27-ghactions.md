@@ -6,7 +6,7 @@ tags: projects ci-cd devops postmortem
 ---
 ![](/assets/ghactions/octocat.jpeg)
 
-Hello friends, (once again) it's been a while. 
+[Hello](Hello) friends, (once again) it's been a while. 
 
 In my latest project, [roll-rust](https://github.com/jvlsg/roll-rust/), I've made use of a very nice feature from Github, called [Github Actions](https://docs.github.com/en/actions), and would very much like to share some of what I've learned with all my theoretical readers.
 
@@ -59,7 +59,7 @@ Variables are grouped in **_Contexts_**. Think of them as a Dictionary where the
 
 # Breaking Down the CD Workflow
 
-Now, we'll take a closer look on the [Workflow used on roll-rust]((https://github.com/jvlsg/roll-rust/blob/main/.github/workflows/cd.yml) ) to provide Continuous Deployment. Continous deployment is a fancy way to say that, if all goes well, the workflow will automatically publish a new version of our software.
+Now, we'll take a closer look on the [Workflow used on roll-rust]((https://github.com/jvlsg/roll-rust/blob/main/.github/workflows/cd.yml) ) to provide Continuous Deployment. Continuous deployment is a fancy way to say that, if all goes well, the workflow will automatically publish a new version of our software.
 
 Please, also note that this is a Workflow used in a small project, so the configurations should probably be tweaked to fit a bigger project better. 
 
@@ -150,7 +150,7 @@ Here's where things get interesting. The `strategy` is simply a context that sto
 
 You can add variables of any name to the `matrix` and, perhaps unhelpfully to the reader, I called the "list of dicts" `job`. In each dict, `os` holds the name of the Runner the Job will run on, `target` holds the variable that the rust compiler uses to know what's compiling for, and `cross` can be ignored because I didn't put enough research to [figure out how to use it](https://github.com/rust-embedded/cross).
 
-One important thing, and also the reason a single "list of dicts" was used, whenver you place additional lists inside Matrix, you create a number of jobs based on the combination (or, the [Cartesian Product](https://en.wikipedia.org/wiki/Cartesian_product) if you're feeling fancy) between them. And in our case, there wouldn't be any sense in using MacOS to compile for Linux, etc.
+One important thing, and also the reason a single "list of dicts" was used, whenever you place additional lists inside Matrix, you create a number of jobs based on the combination (or, the [Cartesian Product](https://en.wikipedia.org/wiki/Cartesian_product) if you're feeling fancy) between them. And in our case, there wouldn't be any sense in using MacOS to compile for Linux, etc.
 
 ### Getting Rusty
 
